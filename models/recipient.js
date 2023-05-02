@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 const db = require('../config/connection');
 
-class Recipients extends Model {
+class Recipient extends Model {
 };
 
-Recipients.init(
+Recipient.init(
     {
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
@@ -22,4 +22,10 @@ Recipients.init(
         }
     });
 
-module.exports = User;
+Recipient.belongsTo(EmailList, {
+    foreignKey: {
+        allowNull: false,
+    },
+});
+
+module.exports = Recipient;

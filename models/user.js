@@ -11,17 +11,17 @@ class User extends Model {
 User.init(
   {
     id: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
     name: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     email: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
@@ -29,12 +29,23 @@ User.init(
       }
     },
     password: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
       validate: {
         len: [8]
       }
-    }
+    },
+    hooks: {
+      beforeCreate: async (user) => {
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(user.password, saltRounds);
+        user.password = hashedPassword;
+      },
+    },
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    modelName: 'user',
   });
 
 module.exports = User;

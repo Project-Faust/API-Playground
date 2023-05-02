@@ -7,20 +7,26 @@ class EmailList extends Model {
 EmailList.init(
     {
         id: {
-            type: Sequelize.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
         name: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         description: {
-            type: Sequelize.STRING,
+            type: DataTypes.STRING,
             allowNull: true,
             unique: true,
         }
     });
 
-module.exports = User;
+EmailList.belongsTo(User, {
+    foreignKey: {
+        allowNull: false,
+    },
+});
+
+module.exports = EmailList;
