@@ -7,6 +7,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+//init handlebars
+const hbs = exphbs.create();
 
 const sess = {
   // Change the secret to variable in .env
@@ -21,11 +23,18 @@ const sess = {
 
 app.use(session(sess));
 
+// express.static
+express.static(views);
+//
+app.engine ('handlebars', hbs.engine);
+app.set('viewengine', hbs.engine);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
+
 });
