@@ -7,6 +7,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
 //init handlebars
 const hbs = exphbs.create();
 
@@ -23,11 +24,11 @@ const sess = {
 
 app.use(session(sess));
 
-// express.static
-express.static(views);
-//
+
+express.static('public');
+
 app.engine ('handlebars', hbs.engine);
-app.set('viewengine', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
