@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const db = require('../config/connection');
 
-class EmailList extends Model {
+class Recipients extends Model {
 };
 
-EmailList.init(
+Recipients.init(
     {
         id: {
             type: Sequelize.INTEGER,
