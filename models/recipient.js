@@ -1,8 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const db = require('../config/connection');
 
-class Recipient extends Model {
-};
+class Recipient extends Model {};
 
 Recipient.init(
     {
