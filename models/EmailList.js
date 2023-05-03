@@ -1,32 +1,32 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const db = require('../config/connection');
 
-const EmailList = db.define('EmailList', {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  name: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
-  description: {
-    type: Sequelize.TEXT,
-    allowNull: true,
-  },
-  user_id: {
-    type: Sequelize.STRING,
-    allowNull: false
-  }
-},
-{
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'email_list',
-  }
-);
+class EmailList extends Model {};
+
+EmailList.init(
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            unique: true,
+        },
+        {
+            sequelize,
+            freezeTableName: true,
+            underscored: true,
+            modelName: 'email_list',
+        }
+    });
+
 
 module.exports = EmailList;
