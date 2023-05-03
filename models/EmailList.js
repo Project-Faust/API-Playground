@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const db = require('../config/connection');
 
-class EmailList extends Model {};
+class EmailList extends Model { };
 
 EmailList.init(
     {
@@ -20,13 +20,13 @@ EmailList.init(
             allowNull: true,
             unique: true,
         },
-        {
-            sequelize,
-            freezeTableName: true,
-            underscored: true,
-            modelName: 'email_list',
-        }
-    });
-
+    },
+    {
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'email_list',
+    }
+);
 
 module.exports = EmailList;
