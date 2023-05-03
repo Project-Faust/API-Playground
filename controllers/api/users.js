@@ -1,30 +1,13 @@
-// users.js
 const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const User = require('../models/user');
 
-// Hash the password before storing it in the database
-// const hashPassword = async (req, res, next) => {
-//   const { password } = req.body;
-
-//   try {
-//     const salt = await bcrypt.genSalt(10);
-//     const hashedPassword = await bcrypt.hash(password, salt);
-//     req.body.password = hashedPassword;
-//     next();
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// };
-
-// Compare the hashed password with the one provided during login
-const comparePassword = async (req, res, next) => {
-  const { email, password } = req.body;
-
+router.post('/login', async (req, res) => {
+  // If the user is authenticated, send a 200 status and a success message
   try {
     const user = await User.findOne({ where: { email } });
-    const isMatch = await bcrypt.compare(password, user.password);
+    const isMatch = user.comparePassword(password);
     if (!user || !isMatch) {
       return res.status(400).json({
         success: false,
@@ -32,26 +15,16 @@ const comparePassword = async (req, res, next) => {
       });
     }
 
-    // if (!isMatch) {
-    //   return res.status(401).json({
-    //     success: false,
-    //     error: 'Invalid password entered',
-    //   });
-    // }
+    req.session.user_id = user.id;
+    req.session.logged_in = true;
 
-    req.user = user;
-    next();
+    return res.json({
+      success: true,
+      message: 'Successfully logged in!',
+    });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-};
-
-router.post('/login', (req, res) => {
-  // If the user is authenticated, send a 200 status and a success message
-  return res.json({
-    success: true,
-    message: 'Successfully logged in!',
-  });
 });
 
 module.exports = router;
