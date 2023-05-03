@@ -8,14 +8,14 @@ const recipientData = require('./recipientData.json')
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
 
-    const users = await User.bulkCreate(userData, {
+    const Users = await User.bulkCreate(userData, {
         individualHooks: true,
         returning: true,
     });
 
     const EmailLists = await EmailList.bulkCreate(emailListData);
 
-    const recipients = await Recipient.bulkCreate(recipientData);
+    const Recipients = await Recipient.bulkCreate(recipientData);
 
     process.exit(0);
 };
