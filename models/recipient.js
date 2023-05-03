@@ -19,12 +19,13 @@ Recipient.init(
                 isEmail: true,
             }
         }
-    });
-
-Recipient.belongsTo(EmailList, {
-    foreignKey: {
-        allowNull: false,
     },
-});
+    {
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'email_list',
+    }
+);
 
 module.exports = Recipient;

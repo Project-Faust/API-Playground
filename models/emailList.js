@@ -19,13 +19,14 @@ EmailList.init(
             type: DataTypes.STRING,
             allowNull: true,
             unique: true,
+        },
+        {
+            sequelize,
+            freezeTableName: true,
+            underscored: true,
+            modelName: 'email_list',
         }
     });
 
-EmailList.belongsTo(User, {
-    foreignKey: {
-        allowNull: false,
-    },
-});
 
 module.exports = EmailList;
