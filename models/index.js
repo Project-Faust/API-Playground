@@ -1,6 +1,6 @@
-const User = require('./User');
-const EmailList = require('./EmailList');
-const Recipient = require('./Recipient');
+const User = require('/User');
+const EmailList = require('/EmailList');
+const Recipient = require('/Recipient');
 
 User.hasMany(EmailList, {
     foreignKey: 'user_id'
