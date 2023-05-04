@@ -29,13 +29,56 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// /register renders new user registration if not logged in, otherwise redirect to profile
+router.get('/register', (req, res) => {
+  if (req.session.logged_in) {
+    return res.redirect('/profile');
+  }
+  res.render('register');
+})
+
+// router.post('/login', async (req, res) => {
+//   // If the user is authenticated, send a 200 status and a success message
+//   try {
+//     const user = await User.findOne({ where: { email } });
+//     const isMatch = user.comparePassword(password);
+//     if (!user || !isMatch) {
+//       return res.status(400).json({
+//         success: false,
+//         error: 'Username or password is incorrect.',
+//       });
+//     }
+
+//     req.session.user_id = user.id;
+//     req.session.logged_in = true;
+
+//     res.json({
+//       success: true,
+//       message: 'Successfully logged in!',
+//     });
+
+//     return res.redirect('/profile');
+//   } catch (error) {
+//     res.status(500).json({ error: error.message });
+//   }
+// });
+
+// router.post('/register', async (req, res) => {
+//   try {
+//     const { name, email, password } = req.body;
+//     const user = await User.create({
+//       name,
+//       email,
+//       password
+//     });
+//   } catch (err) {
+//     res.status(500).json({ error: error.message });
+//   }
+// })
 
 
 
 
 
 
-
-
-
-module.exports = router;
+// module.exports = router;
