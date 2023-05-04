@@ -29,19 +29,12 @@ router.get('/:id', async (req, res) => {
 });
 
 // add new user
-router.post('/:id', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-    const id = req.params.id;
-
-    const users = await User.findByPk(id);
-    if (!users) {
-      return res.status(404).json({ message: 'User not found.' });
-    }
-    res.json(recipient);
+    const userData = await User.create(req.body);
+    res.status(200).json(userData);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: 'Server error.' });
+    res.status(500).json(err);
   }
 });
 
