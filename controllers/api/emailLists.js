@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const EmailList = require('../models/EmailList');
+const EmailList = require('../../models/EmailList');
 
 // get all email lists
 router.get('/', async (req, res) => {
@@ -36,7 +36,7 @@ router.put('/:id', async (req, res) => {
 
         const emailList = await EmailList.findByPk(id);
         if (!emailList) {
-            return res.status(404).json({ message: 'Email list not found' });
+            return res.status(404).json({ message: 'Email list not found.' });
         }
 
         const updatedEmailList = await emailList.update({ name, description });
