@@ -19,11 +19,11 @@ Recipient.init(
                 isEmail: true,
             }
         },
-        emailList_id: {
+        email_list_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
-                model: 'EmailList',
+                model: 'email_list',
                 key: 'id'
             }
         }
@@ -32,7 +32,7 @@ Recipient.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'email_list',
+        modelName: 'recipient',
     }
 );
 
