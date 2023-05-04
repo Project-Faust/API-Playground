@@ -1,6 +1,10 @@
 const router = require('express').Router();
-const homeroute = require('./homeRoute.js')
+const usersRoute = require('./users');
+const emailListRoute = require('./emailLists');
+const recipientRoute = require('./recipients');
 
-router.use('/home', homeroute);
+router.use('/', usersRoute);
+router.use('/', emailListRoute);
+router.use('/', recipientRoute);
 
 module.exports = router;
