@@ -13,13 +13,13 @@ router.get('/', async (req, res) => {
     }
 });
 
-// get recipient by id
+// get recipient by id; if nonexistent, return 404 status
 router.get('/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const recipient = await Recipient.findByPk(id);
         if (!recipient) {
-            return res.status(404).json({ message: 'Recipient not found' });
+            return res.status(404).json({ message: 'Recipient not found.' });
         };
         res.json(recipient);
     } catch (err) {
@@ -29,19 +29,12 @@ router.get('/:id', async (req, res) => {
 });
 
 // add new recipient
-router.put('/:id', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-        const { email, email_list_id } = req.body;
-        const id = req.params.id;
-
-        const recipient = await Recipient.findByPk(id);
-        if (!recipient) {
-            return res.status(404).json({ message: 'Recipient not found.' });
-        }
-        res.json(recipient);
+        const recipientData = await Recipient.create(req.body);
+        res.status(200).json(recipientData);
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Server error.' });
+        res.status(500).json(err);
     }
 });
 
