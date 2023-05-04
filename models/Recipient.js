@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const db = require('../config/connection');
 
-class Recipient extends Model {};
+class Recipient extends Model { };
 
 Recipient.init(
     {
@@ -17,6 +17,14 @@ Recipient.init(
             unique: true,
             validate: {
                 isEmail: true,
+            }
+        },
+        emailList_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'EmailList',
+                key: 'id'
             }
         }
     },
