@@ -1,29 +1,47 @@
 const express = require('express');
-const bcrypt = require('bcrypt');
 const router = express.Router();
-const User = require('../models/user');
+const User = require('../../models/User');
 
-router.post('/login', async (req, res) => {
-  // If the user is authenticated, send a 200 status and a success message
+// * gets all users
+router.get('/', async (req, res) => {
   try {
-    const user = await User.findOne({ where: { email } });
-    const isMatch = user.comparePassword(password);
-    if (!user || !isMatch) {
-      return res.status(400).json({
-        success: false,
-        error: 'Username or password is incorrect.',
-      });
+    const users = await User.findAll();
+    res.json(recipients);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error.' });
+  }
+});
+
+// get user by id; if nonexistent, return 404 status
+router.get('/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const users = await User.findByPk(id);
+    if (!users) {
+      return res.status(404).json({ message: 'Recipient not found.' });
+    };
+    res.json(users);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// add new user
+router.post('/:id', async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+    const id = req.params.id;
+
+    const users = await User.findByPk(id);
+    if (!users) {
+      return res.status(404).json({ message: 'User not found.' });
     }
-
-    req.session.user_id = user.id;
-    req.session.logged_in = true;
-
-    return res.json({
-      success: true,
-      message: 'Successfully logged in!',
-    });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.json(recipient);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error.' });
   }
 });
 

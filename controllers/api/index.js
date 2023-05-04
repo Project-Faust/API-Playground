@@ -3,8 +3,8 @@ const usersRoute = require('./users');
 const emailListRoute = require('./emailLists');
 const recipientRoute = require('./recipients');
 
-router.use('/', usersRoute);
-router.use('/', emailListRoute);
-router.use('/', recipientRoute);
+router.use('/user', usersRoute);
+router.use('/email-list', emailListRoute);
+router.use('/recipient', recipientRoute);
 
 module.exports = router;

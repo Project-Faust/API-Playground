@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // add new email list
-router.put('/:id', async (req, res) => {
+router.post('/:id', async (req, res) => {
     try {
         const { name, description } = req.body;
         const id = req.params.id;
@@ -38,10 +38,7 @@ router.put('/:id', async (req, res) => {
         if (!emailList) {
             return res.status(404).json({ message: 'Email list not found.' });
         }
-
-        const updatedEmailList = await emailList.update({ name, description });
-
-        res.json(updatedEmailList);
+        res.json(emailList);
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Server error.' });
