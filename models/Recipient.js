@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const db = require('../config/connection');
 
-class Recipient extends Model {};
+class Recipient extends Model { };
 
 Recipient.init(
     {
@@ -18,13 +18,21 @@ Recipient.init(
             validate: {
                 isEmail: true,
             }
+        },
+        email_list_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'email_list',
+                key: 'id'
+            }
         }
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'email_list',
+        modelName: 'recipient',
     }
 );
 
