@@ -2,7 +2,7 @@
 
 const form = document.getElementById('login-form');
 
-form.addEventListener('login', event => {
+form.addEventListener('email-login', event => {
   event.preventDefault();
 
   const email = form.email.value;
