@@ -29,13 +29,10 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-
-
-
-
-
-
-
-
-
-module.exports = router;
+// /register renders new user registration if not logged in, otherwise redirect to profile
+router.get('/register', (req, res) => {
+  if (req.session.logged_in) {
+    return res.redirect('/profile');
+  }
+  res.render('register');
+});

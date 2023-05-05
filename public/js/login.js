@@ -1,32 +1,21 @@
-//FRONTEND JAVASCRIPT to be used by my "login.handlebars template to communicate with the users.js login post method"
-
-const form = document.getElementById('login-form');
-
-form.addEventListener('email-login', event => {
+const login = async (event) => {
   event.preventDefault();
 
-  const email = form.email.value;
-  const password = form.password.value;
+  const email = document.querySelector('#email-login').value.trim();
+  const password = document.querySelector('#password-login').value.trim();
 
-  fetch('/api/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ email, password })
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.error) {
-      // If there was an error, display it to the user
-      alert(data.error);
+  if (email && password) {
+    const response = await fetch('/api/users/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.replace('/profile');
     } else {
-      // If the login was successful, redirect to the homepage
-      window.location.href = '/';
+      alert(response.statusText);
     }
-  })
-  .catch(error => {
-    console.error(error);
-  });
-});
+  };
+};
 
+document.querySelector('#login-btn').addEventListener('click', login);
