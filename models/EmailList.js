@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const db = require('../config/connection');
+const sequelize = require('../config/connection');
 
 class EmailList extends Model { };
 
