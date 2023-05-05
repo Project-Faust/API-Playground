@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const EmailList = require('../../models/EmailList');
+const sequelize = require('../../config/connection');
 
 // get all email lists
 router.get('/', async (req, res) => {

@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
-const db = require('../config/connection');
+// const db = require('../config/connection');
+const sequelize = require('../config/connection');
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -35,7 +36,9 @@ User.init(
       validate: {
         len: [8]
       }
-    },
+    }
+  },
+  {
     hooks: {
       beforeCreate: async (user) => {
         const saltRounds = 10;
