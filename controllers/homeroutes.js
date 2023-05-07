@@ -4,16 +4,16 @@ const router = express.Router();
 // * renders main page
 router.get('/', (req, res) => {
   try {
-    res.render('main', { title: 'Main Page' });
+    res.render('home');
   } catch (err) {
     console.error(err);
   }
 });
 
 // /profile render profile if logged in, otherwise render login page
-router.get('/profile', (req, res) => {
+router.get('/dashboard', (req, res) => {
   if (req.session.logged_in) {
-    res.render('profile', {
+    res.render('dashboard', {
       logged_in: req.session.logged_in
     });
   } else {
