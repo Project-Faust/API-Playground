@@ -2,28 +2,25 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <form>
+            <form action="/submit-form" method="POST">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Search term" aria-label="Search term"
-                        aria-describedby="search-button">
+                    <input type="text" id='search' class="form-control" name="search" placeholder="Search term"
+                        aria-label="Search term" aria-describedby="search-button">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button" id="search-button">Search</button>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Select API</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>API 1</option>
-                        <option>API 2</option>
-                        <option>API 3</option>
+                    <label for="exampleFormControlSelect1">Select API:</label>
+                    <select class="form-control" id="api" name="api">
+                        <option value="https://api.#.com./">API 1</option>
+                        <option value="https://api.#.com./">API 2</option>
+                        <option value="https://api.#.com./">API 3</option>
                     </select>
                 </div>
             </form>
         </div>
     </div>
 </div>
-<div>
-    <p id="fetch-results">
-
-    </p>
+<div id="fetch-results">
 </div>

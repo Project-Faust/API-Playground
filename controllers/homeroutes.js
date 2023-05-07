@@ -24,7 +24,7 @@ router.get('/dashboard', (req, res) => {
 // /login renders /profile if logged in, otherwise render login page
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    return res.redirect('/profile');
+    return res.redirect('/dashboard');
   }
   res.render('login');
 });
@@ -32,7 +32,7 @@ router.get('/login', (req, res) => {
 // /register renders new user registration if not logged in, otherwise redirect to profile
 router.get('/register', (req, res) => {
   if (req.session.logged_in) {
-    return res.redirect('/profile');
+    return res.redirect('/dashboard');
   }
   res.render('register');
 });
