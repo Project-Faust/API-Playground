@@ -1,3 +1,2 @@
-DROP DATABASE IF EXISTS emails_db;
-CREATE DATABASE emails_db;
-
+DROP DATABASE IF EXISTS api_search_db
+CREATE DATABASE api_search_db;

@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class EmailList extends Model { };
+class History extends Model { };
 
-EmailList.init(
+History.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -15,9 +15,9 @@ EmailList.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        description: {
+        search_params: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
             unique: true,
         },
         user_id: {
@@ -37,4 +37,4 @@ EmailList.init(
     }
 );
 
-module.exports = EmailList;
+module.exports = History;
