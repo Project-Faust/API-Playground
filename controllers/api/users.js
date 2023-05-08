@@ -18,7 +18,7 @@ router.post('/register', async (req, res) => {
 });
 
 // login for existing user
-router.get('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     // check if user data exists
     const userData = await User.findOne({ where: { email: req.body.email } });

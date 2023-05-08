@@ -1,21 +1,27 @@
 {{!-- Make changes here still --}}
 <div>
-    <h2>Try one of our API searches to have the result rendered to your browser window.</h2>
+    <h2>Try one of our API searches, or supply your own, to have the result rendered to your browser window.</h2>
     <br>
     <ul>
         <li>
-            <h5>Random User</h5>
+            <h5>Enter Your Own API Endpoint!</h5>
+            <p>Instead of using a pre-filled API endpoint from the dropdown box, enter a complete API endpoint
+                (including search parameters, if applicable).</p>
+        </li>
+        <li>
+            <h5>Random User: https://randomuser.me/api/</h5>
             <p>Do not enter anything into the search box. Simply select 'Random User' from the drop down menu and press
                 the search button to generate a random fake user (including: gender, name, email, address, etc.).</p>
         </li>
         <li>
-            <h5>Universities</h5>
+            <h5>Universities: http://universities.hipolabs.com/search?country=</h5>
             <p>Enter a country name into the search box and select 'Universities' from the drop down menu to receive
                 data containing a list of universities in the specified country.</p>
         </li>
         <li>
-            <h5>Zip Code</h5>
-            <p>Enter a zip code into the search box and select 'Zip Code' from the drop down menu to receive general
+            <h5>Zip Code: https://api.zippopotam.us/us/</h5>
+            <p>Enter a five digit zip code (inside the United States of America) into the search box and select 'Zip
+                Code' from the drop down menu to receive general
                 information regarding the specified zip code.</p>
         </li>
     </ul>
@@ -25,9 +31,12 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <form>
-                <div class="form-group">
+                <div class="form-group
+                mb-3">
                     <label for="exampleFormControlSelect1">Select API:</label>
                     <select class="form-control" id="api-dropdown" name="api">
+                        <option value="">Enter Your Own!
+                        </option>
                         <option value="https://randomuser.me/api/">Random User (no search string)
                         </option>
                         <option value="http://universities.hipolabs.com/search?country=">Universities
@@ -36,9 +45,10 @@
                         </option>
                     </select>
                 </div>
+                {{!-- <br> --}}
+                <label>Enter a search parameter:</label>
                 <div class="input-group mb-3">
-                    <label>Enter a search term:</label>
-                    <br>
+                    {{!-- <br> --}}
                     <input type="text" id='search-input' class="form-control" name="search" placeholder="Search"
                         aria-label="Search term" aria-describedby="search-button">
                     <div class="input-group-append">
@@ -54,5 +64,3 @@
     <p id="fetch-results"></p>
 </div>
 <script src="/js/fetch.js"></script>
-
-{{!-- action="/submit-form" method="POST" --}}
