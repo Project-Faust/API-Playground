@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const usersRoute = require('./users');
-const emailListRoute = require('./emailLists');
-const recipientRoute = require('./recipients');
+const apiSearchRoute = require('./nodeFetch');
+const historyRoute = require('./fetchHistory');
 
 router.use('/users', usersRoute);
-router.use('/email-list', emailListRoute);
-router.use('/recipient', recipientRoute);
+router.use('/api-search', apiSearchRoute);
+router.use('/history', historyRoute);
 
 module.exports = router;
