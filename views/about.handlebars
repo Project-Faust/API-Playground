@@ -1,0 +1,62 @@
+<div>
+    <section>
+        <h3>What is our website?</h3>
+        <p>This website is meant to be a learning tool for novice web developers aspiring to expand their knowledge
+            regarding APIs and why they're necessary.</p>
+    </section>
+    <section>
+        <h3>Why use it?</h3>
+        <p>While there are multiple tools that are used by developers in testing (Postman, Insomnia, etc.), all of these
+            require some basic understanding of API usage and structure; most are also desktop applications that require
+            download and installation.</p>
+        <p>This web application is a safe place for users to learn about APIs and explore some of the more basic
+            functionality that they provide in a sandbox-style setting where they are not at risk of causing any harm to
+            their own hardware, software, or networks.</p>
+    </section>
+    <section>
+        <h3>So what is an API?</h3>
+    </section>
+    <section>
+        <div>
+            <h5>Parts of API</h5>
+            <ul>
+                <li>Request</li>
+                <p>A request is made (client-side) to an API to access data or functionality. You can think of this
+                    somewhat literally as "sending a request to get something from the API."</p>
+                <li>Response</li>
+                <p>Once a request has been received (server-side), the API sends a response back to the client. This
+                    response could be data or the result of some functionality. Again, think literally; a response is
+                    what you would get from someone or something once your request has been completed.</p>
+                <li>Endpoint</li>
+                <p>An endpoint is a URL that client uses to access the API. You can think of it as an analogue to how a
+                    URL typed into a browser allows the user to reach a web page.</p>
+                <li>Method</li>
+                <p>Methods tell the API what type of request being made. Methods include GET, POST, PUT (think UPDATE),
+                    and DELETE. A common acronym to remember API methods is C.R.U.D. (Create: POST, Read: GET, Update:
+                    POST, Delete: DELETE).</p>
+                <li>Parameters</li>
+                <p>Paramaters (think search terms) are optional data the the client can include in a request to specify
+                    the data or functionality returned from the API. An example would be to add the 'users' parameter if
+                    you wanted to only get data on users from the GitHub api. (See https://api.github.com/ as opposed to
+                    https://api.github.com/users)</p>
+                <li>Authentication</li>
+                <p>Many APIs require authentication to filter which users are able to access the requested data or
+                    functionality. Common methods of authentication include: API Keys, OAuth, and JWT.</p>
+                <li>Error Handling</li>
+                <p>If you have ever gotten the infamous "Error: 404, Page not Found" message while browsing the web, you
+                    have already encountered a form of error handling. A status of 404 indicates that the requested
+                    information was not found server-side. Error messages do what their name implies: they allow for
+                    meaningful messages to be sent back in order to resolves issues.</p>
+                <li>BONUS: Status Codes</li>
+                <p>Status codes come in multiple flavors. Codes are typically classified by levels; for example,
+                    a 200 level status would include status codes that start with a 2 in the hundreds place. As a rule
+                    of thumb: 100-199 are informational responses, 200-299 are successful responses, 300-399 are
+                    redirection messages, 400-499 are client-side error responses, and 500-599 are server-side error
+                    responses.</p>
+                <p>For more information on status codes, visit the MDN documentation for HTTP Response Status Codes
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">here</a>.
+                </p>
+            </ul>
+        </div>
+    </section>
+</div>
