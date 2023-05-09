@@ -11,14 +11,9 @@ History.init(
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        url: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        search_params: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
         },
         user_id: {
             type: DataTypes.INTEGER,
@@ -33,7 +28,7 @@ History.init(
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'email_list',
+        modelName: 'fetch_history',
     }
 );
 

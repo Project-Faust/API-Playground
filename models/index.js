@@ -1,34 +1,13 @@
 const User = require('./User');
-const EmailList = require('./EmailList');
-const Recipient = require('./Recipient');
+const History = require('./History');
 
-User.hasMany(EmailList, {
+User.hasMany(History, {
     foreignKey: 'user_id'
 });
 
-EmailList.hasMany(Recipient, {
-    foreignKey: 'email_list_id'
-});
-
-//maybe we don't need these because of the below 'belongsTo'
-
-// EmailList.belongsTo(User, {
-//     foreignKey: {
-//         allowNull: false,
-//     },
-// });
-
-// Recipient.belongsTo(EmailList, {
-//     foreignKey: {
-//         allowNull: false,
-//     },
-// });
-
-EmailList.belongsTo(User);
-Recipient.belongsTo(EmailList);
+History.belongsTo(User);
 
 module.exports = {
     User,
-    EmailList,
-    Recipient
+    History
 };
