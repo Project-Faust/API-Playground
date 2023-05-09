@@ -4,7 +4,9 @@ const router = express.Router();
 // * renders main page
 router.get('/', (req, res) => {
   try {
-    res.render('home');
+    const logged_in = req.session.logged_in || false; // set logged_in to false if not set
+    
+    res.render('home', { logged_in });
   } catch (err) {
     console.error(err);
   }
@@ -35,6 +37,17 @@ router.get('/register', (req, res) => {
     return res.redirect('/dashboard');
   }
   res.render('register');
+});
+
+// routes to the about page
+router.get('/about', (req, res) => {
+  const logged_in = req.session.logged_in || false;
+  try {
+    
+    res.render('about');
+  } catch (err) {
+    console.error(err);
+  }
 });
 
 module.exports = router;
