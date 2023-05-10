@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const EmailList = require('../../models/History');
+const History = require('../../models/History');
 const sequelize = require('../../config/connection');
 
 // get all history
