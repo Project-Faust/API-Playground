@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const { History } = require('../models');
 
 // * renders main page
 router.get('/', (req, res) => {
   try {
     const logged_in = req.session.logged_in || false; // set logged_in to false if not set
-    
+
     res.render('home', { logged_in });
   } catch (err) {
     console.error(err);
@@ -13,10 +14,15 @@ router.get('/', (req, res) => {
 });
 
 // /profile render profile if logged in, otherwise render login page
-router.get('/dashboard', (req, res) => {
+router.get('/dashboard', async (req, res) => {
   if (req.session.logged_in) {
+    const userID = req.session.user_id;
+    const historyData = await History.findAll({
+      where: { user_id: userID }
+    })
     res.render('dashboard', {
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      historyData: historyData
     });
   } else {
     return res.redirect('/login');
@@ -43,7 +49,6 @@ router.get('/register', (req, res) => {
 router.get('/about', (req, res) => {
   const logged_in = req.session.logged_in || false;
   try {
-    
     res.render('about');
   } catch (err) {
     console.error(err);
