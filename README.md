@@ -36,3 +36,5 @@
 
   ## Questions
   For questions or feedback, please reach out to <a href="https://github.com/JohnnyB90">Johnny</a>, <a href="https://github.com/CJB14">Cameron</a>, or <a href="https://github.com/Project-Faust">Lane</a> on GitHub.  
+  ![image](https://github.com/Project-Faust/API-Playground/assets/30759236/257b8518-8a00-42b8-aa38-e57547c1712a)
+
