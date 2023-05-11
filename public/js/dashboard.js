@@ -22,7 +22,7 @@ searchBtn.addEventListener('click', async () => {
         });
 
         const data = await response.json();
-        resultsEl.innerHTML = JSON.stringify(data);
+        resultsEl.innerHTML = JSON.stringify(data, null, 2);
     } catch (err) {
         console.error(err);
     }
