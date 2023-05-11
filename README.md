@@ -1,30 +1,39 @@
-# Project-2
-The API Playgroung 
 
-# User Story
-As a user I want to utilies The Api playground/educational application is a great place to get your feet wet with api end points and fetches.
+  ## Table of Contents
+  * [Author](#authorName)
+  * [Project Title](#projectName)
+  * [Project Description](#projectDescription)
+  * [Installation Instructions](#projectInstallation)
+  * [Usage Information](#projectUsage)
+  * [Contribution Guidelines](#projectContribution)
+  * [Test Instructions](#projectTesting)
+  * [License](#projectLicense)
+  * [Support](#projectEmail)
 
-# Description
-what makes our App different?
-Other Api and data fetching applications require some basic understanding of API usage and structure. Most applications in this category also require download and installations whereas API Playground is accessible in the browser on any device.
-Saves past search history.
+  # Project Creator
+  Johnny Bonee, Cam Burney, Lane Pentecost
 
-The purpose of this application is an educational/playground tool that can be used to provide users with an interactive, hands-on learning experience for working with web APIs and data fetching
+  # Project Name
+  API Playground
 
+  ## Description
+  API Playground is a learning tool created in a sandbox style where novice and beginner web developers can learn about and test APIs safely in the browser window.
 
-## Table of Contents
+  ## Installation Instructions
+  As this is a broswer based application, no local downloads or installations are necessary.
 
-Installation
-(npm i)
-(nodemon server)
+  ## Usage
+  API Playground is meant to be used as an educational tool, and, as such, users are encouraged to utilize the tools and information supplied to learn and improve their skills with web APIs.
 
-## Usage
-http://localhost:3001 Input this link into the web browser
+  ## Contribution Guidelines
+  Please direct message on GitHub or email any of the creators regarding contributions or forks.
 
-## Credits
-https://github.com/Project-Faust
+  ## Testing
+  As this is a browser based application, testing the user interface and functionality of the dashboard and login features is the primary goal.
 
-https://github.com/JohnnyB90
+  ## License
+  This project is not licensed.
 
-https://github.com/CJB14
-
+  ## Questions
+  For questions or feedback, please reach out to me on <a href="https://github.com/JohnnyB90, CJB14, Project-Faust">GitHub</a> or via <a href="mailto:undefined">email</a>.
+    
