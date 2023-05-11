@@ -26,7 +26,7 @@
   API Playground is meant to be used as an educational tool, and, as such, users are encouraged to utilize the tools and information supplied to learn and improve their skills with web APIs.
 
   ## Contribution Guidelines
-  Please direct message on GitHub or email any of the creators regarding contributions or forks.
+  Please direct message any of the creators on GitHub regarding contributions or forks.
 
   ## Testing
   As this is a browser based application, testing the user interface and functionality of the dashboard and login features is the primary goal.
@@ -35,5 +35,4 @@
   This project is not licensed.
 
   ## Questions
-  For questions or feedback, please reach out to me on <a href="https://github.com/JohnnyB90, CJB14, Project-Faust">GitHub</a> or via <a href="mailto:undefined">email</a>.
-    
+  For questions or feedback, please reach out to <a href="https://github.com/JohnnyB90">Johnny</a>, <a href="https://github.com/CJB14">Cameron</a>, or <a href="https://github.com/Project-Faust">Lane</a> on GitHub.  
