@@ -1,4 +1,4 @@
-  ![image](https://github.com/Project-Faust/API-Playground/assets/30759236/257b8518-8a00-42b8-aa38-e57547c1712a)
+![image](https://github.com/Project-Faust/API-Playground/assets/30759236/00f38162-7f75-4121-a7e2-63469d2427d4)
 
   ## Table of Contents
   * [Author](#authorName)
