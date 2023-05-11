@@ -4,22 +4,22 @@ const login = async (event) => {
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
-  fetch('/api/login', {
-    meth od: 'POST',
+  fetch('/api/users/login', {
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ email, password })
   })
-  .then(response => response.json())
-  .then(data => {
-    if (data.error) {
-      // If there was an error, display it to the user
-      alert(data.error);
-    } else {
-      alert(response.statusText);
-    }
-  };
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        // If there was an error, display it to the user
+        alert(data.error);
+      } else {
+        document.location.replace('/dashboard');
+      }
+    })
 };
 
 document.querySelector('#login-btn').addEventListener('click', login);
